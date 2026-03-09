@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Nilai Mutu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cek Nilai Mutu</h2>
+        <form id="formNilai">
+            <div class="input-grup">
+                <label>Nama</label>
+                <input type="text" name="nama" id="nama" required>
+            </div>
+            
+            <div>
+                <label>NPM</label>
+                <input type="text" name="npm" id="npm" required>
+            </div>
+
+            <div>
+                <label>Nilai</label>
+                <input type="number" name="nilai" id="nilai" required>
+            </div>
+            
+            <button type="submit">Cek Nilai</button>
+        </form>
+        <p id="hasil"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
