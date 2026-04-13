@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Belanja ATK</title>
+</head>
+<body>
+
+<h2>Form Belanja Alat Tulis</h2>
+
+<form action="proses.php" method="POST">
+
+    Nama:
+    <input type="text" name="nama" required minlength="3"><br><br>
+
+    NIM:
+    <input type="text" name="nim" required minlength="5" maxlength="15"><br><br>
+
+    Email:
+    <input type="email" name="email" required><br><br>
+
+    Jenis Layanan:
+    <select name="layanan" required>
+        <option value="Reguler">Reguler</option>
+        <option value="Prioritas">Prioritas</option>
+    </select><br><br>
+
+    <h3>Pilih Barang</h3>
+
+    <input type="checkbox" name="barang[]" value="Buku"> Buku
+    Jumlah: <input type="number" name="jumlah[Buku]" min="1"><br>
+
+    <input type="checkbox" name="barang[]" value="Pulpen"> Pulpen
+    Jumlah: <input type="number" name="jumlah[Pulpen]" min="1"><br>
+
+    <input type="checkbox" name="barang[]" value="Pensil"> Pensil
+    Jumlah: <input type="number" name="jumlah[Pensil]" min="1"><br><br>
+
+    <button type="submit">Kirim</button>
+
+</form>
+
+</body>
+</html>

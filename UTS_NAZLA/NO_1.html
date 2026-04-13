@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Belanja Alat Tulis</title>
+</head>
+<body>
+    <header>
+        <h1>Form Pendaftaran Belanja Alat Tulis</h1>
+    </header>
+
+    <div class="container">
+        <section class="content">
+            <h2>Silahkan Isi Formulir di Bawah Ini</h2>
+
+            <form action="NO_1.php" method="POST">
+                <div>
+                    <h4>Nama Mahasiswa</h4>
+                    <input type="text" name="nama" minlength="3" maxlength="50" required>
+                </div>
+
+                <div>
+                    <h4>NIM</h4>
+                    <input type="text" name="nim" minlength="8" maxlength="15" required>
+                </div>
+
+                <div>
+                    <h4>Email</h4>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div>
+                    <h4>Password</h4>
+                    <input type="password" name="password">
+                </div>
+
+                <div>
+                    <h4>Jenis Layanan</h4>
+                    <label><input type="radio" name="layanan" value="reguler" checked>Reguler (Gratis)</label>
+                    <label><input type="radio" name="layanan" value="prioritas">Prioritas (Tambah Biaya Tetap)</label>
+                </div>
+
+                <div>
+                    <h4>Pilihan Barang</h4>
+                    <label><input type="checkbox" name="barang[]" value="buku">Buku</label>
+                    <label><input type="checkbox" name="barang[]" value="pulpen">Pulpen</label>
+                    <label><input type="checkbox" name="barang[]" value="pensil">Pensil</label>
+                    <label><input type="checkbox" name="barang[]" value="penghapus">Penghapus</label>
+                </div>
+
+                <div>
+                    <h4>Jumlah Barang yang Ingin Dibeli</h4>
+                    <input type="number" name="jumlah" min="1" required>
+                </div>
+
+                <button type="submit">Kirim Pesanan</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
