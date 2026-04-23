@@ -1,9 +1,10 @@
-<h3>Soal 1 - Jenis Kendaraan</h3>
+<h3>Nomor 1</h3>
+<p>Menentukan jenis kendaraan berdasarkan jumlah roda</p>
 
 <form method="POST">
-    Masukkan jumlah roda:
+    Jumlah roda:
     <input type="number" name="roda" required>
-    <button type="submit">Cek</button>
+    <button type="submit">Proses</button>
 </form>
 
 <?php
@@ -12,16 +13,16 @@ if(isset($_POST['roda'])){
 
     switch($roda){
         case 2:
-            echo "Kendaraan: Motor";
+            echo "Roda $roda Klasifikasi Kendaraan: Motor";
             break;
         case 3:
-            echo "Kendaraan: Bajaj";
+            echo "Roda $roda Klasifikasi Kendaraan: Bajaj";
             break;
         case 4:
-            echo "Kendaraan: Mobil";
+            echo "Roda $roda Klasifikasi Kendaraan: Mobil";
             break;
         default:
-            echo "Tidak diketahui";
+            echo "Roda $roda Klasifikasi Kendaraan: tidak diketahui";
     }
-}
+}  
 ?>

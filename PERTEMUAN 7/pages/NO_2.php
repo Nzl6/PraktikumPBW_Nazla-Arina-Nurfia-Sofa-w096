@@ -1,4 +1,5 @@
-<h3>Soal 2 - Bilangan Genap</h3>
+<h3>Nomor 2</h3>
+<p>Mencetak bilangan genap dalam rentang tertentu</p>
 
 <form method="POST">
     Dari: <input type="number" name="awal" required>
@@ -10,6 +11,8 @@
 if(isset($_POST['awal']) && isset($_POST['akhir'])){
     $awal = $_POST['awal'];
     $akhir = $_POST['akhir'];
+
+    echo "<b>Bilangan Genap:</b><br>";
 
     for($i = $awal; $i <= $akhir; $i++){
         if($i % 2 == 0){
