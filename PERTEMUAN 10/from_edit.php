@@ -1,6 +1,7 @@
 <?php
 include 'koneksi_db.php';
 include 'nav.php';
+include 'proteksi.php';
 
 $id = $_GET['id'] ?? 0;
 

@@ -1,4 +1,6 @@
-<?php include 'nav.php'; ?>
+<?php include 'nav.php'; 
+include 'proteksi.php';
+?>
 
 <!DOCTYPE html>
 <html lang="id">

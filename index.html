@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PBW — Nazla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --y1:#FFD700;--y2:#FFC300;--y3:#FFB300;--y4:#FF9500;
+  --g1:#6DC34C;--g2:#4DA832;
+  --w:#FFFFFF;--ink:#3A2800;--muted:#8A6800;
+  --cream:#FFFDE7;
+  --blue:#4A90D9;--blue2:#2E6BB5;
+  --orange:#FF6B00;
+}
+body{font-family:'Nunito',sans-serif;background:var(--y1);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.22) 2px,transparent 2px);background-size:30px 30px;pointer-events:none;z-index:0;}
+.hero{position:relative;z-index:2;background:var(--y1);text-align:center;padding:48px 20px 0;}
+.hero-inner{max-width:780px;margin:0 auto;position:relative;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--w);border-radius:99px;padding:6px 20px;font-size:11.5px;font-weight:900;color:var(--y4);letter-spacing:.1em;text-transform:uppercase;box-shadow:0 4px 0 rgba(0,0,0,.1);margin-bottom:16px;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both;}
+.hero-title{font-family:'Fredoka One',cursive;font-size:clamp(46px,10vw,100px);color:var(--w);line-height:1;text-shadow:4px 6px 0 var(--y4);animation:popIn .55s .05s cubic-bezier(.34,1.56,.64,1) both;}
+.hero-title span{color:var(--ink);}
+.hero-sub{font-size:15px;font-weight:800;color:rgba(255,255,255,.9);margin-top:10px;animation:popIn .55s .1s cubic-bezier(.34,1.56,.64,1) both;}
+.mascot{position:absolute;animation:float 3s ease-in-out infinite;}
+.mascot-l{left:-5px;bottom:-10px;font-size:52px;animation-delay:.2s;}
+.mascot-r{right:-5px;bottom:-10px;font-size:44px;animation-delay:.8s;}
+.forest{position:relative;z-index:3;width:100%;overflow:hidden;height:86px;background:transparent;}
+.navbar{position:relative;z-index:5;background:var(--orange);box-shadow:0 4px 0 rgba(0,0,0,.15);}
+.navbar-inner{max-width:860px;margin:0 auto;display:flex;align-items:stretch;}
+.nav-logo{display:flex;align-items:center;gap:8px;padding:12px 24px;background:var(--y3);font-family:'Fredoka One',cursive;font-size:19px;color:var(--w);text-decoration:none;white-space:nowrap;border-right:3px solid rgba(255,255,255,.2);}
+.nav-links{display:flex;align-items:center;gap:2px;padding:0 8px;flex-wrap:wrap;}
+.nav-links a{padding:10px 16px;font-size:12.5px;font-weight:900;color:rgba(255,255,255,.92);text-decoration:none;border-radius:6px;transition:background .15s;white-space:nowrap;letter-spacing:.03em;}
+.nav-links a:hover{background:rgba(255,255,255,.2);}
+.content-stripe{background:var(--y2);position:relative;z-index:4;}
+.section{max-width:860px;margin:0 auto;padding:36px 24px 56px;}
+.section-label{display:flex;align-items:center;gap:12px;margin-bottom:24px;animation:slideIn .4s .15s ease both;}
+.section-label::before,.section-label::after{content:'';flex:1;height:3px;background:rgba(255,255,255,.5);border-radius:99px;}
+.section-label span{font-family:'Fredoka One',cursive;font-size:15px;color:var(--w);white-space:nowrap;letter-spacing:.07em;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;}
+.card{background:var(--w);border-radius:20px;padding:0;box-shadow:0 6px 0 rgba(0,0,0,.12),0 2px 12px rgba(0,0,0,.08);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(28px) scale(.95);transition:transform .2s ease,box-shadow .2s ease;position:relative;}
+.card.visible{animation:cardPop .48s cubic-bezier(.34,1.56,.64,1) forwards;}
+.card:hover{transform:translateY(-6px) scale(1.025)!important;box-shadow:0 14px 0 rgba(0,0,0,.13),0 6px 28px rgba(0,0,0,.12);}
+.card-top{padding:20px 20px 14px;position:relative;overflow:hidden;}
+.card-top::after{content:'';position:absolute;right:-18px;top:-18px;width:72px;height:72px;border-radius:50%;background:currentColor;opacity:.09;}
+.card-emoji{font-size:38px;line-height:1;display:block;margin-bottom:8px;filter:drop-shadow(0 3px 0 rgba(0,0,0,.1));}
+.card-number{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;opacity:.5;margin-bottom:3px;}
+.card-title{font-family:'Fredoka One',cursive;font-size:20px;line-height:1.15;color:var(--ink);}
+.card-bot{padding:10px 20px 18px;border-top:2px dashed rgba(0,0,0,.07);flex:1;display:flex;flex-direction:column;gap:7px;}
+.card-desc{font-size:12px;font-weight:700;color:var(--muted);line-height:1.55;flex:1;}
+.card-tag{display:inline-flex;align-items:center;font-size:10.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 11px;border-radius:99px;align-self:flex-start;}
+.card-arrow{font-size:15px;font-weight:900;align-self:flex-end;margin-top:2px;transition:transform .18s;}
+.card:hover .card-arrow{transform:translateX(5px);}
+.card-uts{grid-column:1/-1;flex-direction:row;background:linear-gradient(135deg,#162236 0%,#1D4E89 100%);color:var(--w);align-items:center;border-radius:20px;box-shadow:0 8px 0 rgba(0,0,0,.2),0 4px 20px rgba(0,0,0,.15);}
+.card-uts .card-top{flex:1;background:transparent;border-right:2px dashed rgba(255,255,255,.13);}
+.card-uts .card-top::after{background:var(--y1);}
+.card-uts .card-title{color:var(--y1);}
+.card-uts .card-number{color:rgba(255,255,255,.45);}
+.card-uts .card-bot{border-top:none;background:transparent;}
+.card-uts .card-desc{color:rgba(255,255,255,.6);}
+.card-uts .card-tag{background:rgba(255,215,0,.18);color:var(--y1);}
+.card-uts .card-arrow{color:var(--y1);}
+.t-yellow .card-top{background:#FFF7CC;color:var(--y3);}
+.t-yellow .card-tag{background:#FFF0A0;color:#8A5E00;}
+.t-green .card-top{background:#E5F7DC;color:var(--g1);}
+.t-green .card-tag{background:#C6EDB4;color:#256015;}
+.t-blue .card-top{background:#E2EFFE;color:var(--blue);}
+.t-blue .card-tag{background:#BDDAF8;color:var(--blue2);}
+.t-sky .card-top{background:#DAF0FD;color:#38B3E8;}
+.t-sky .card-tag{background:#AEDDF9;color:#1880B0;}
+.t-pink .card-top{background:#FDE8F3;color:#D45A8F;}
+.t-pink .card-tag{background:#F8C4DF;color:#9E2F66;}
+.t-mint .card-top{background:#DAF5EE;color:#35C4A0;}
+.t-mint .card-tag{background:#AEEADA;color:#187B5E;}
+.product-wave{width:100%;overflow:hidden;height:48px;background:var(--y2);}
+.product-wave svg{width:100%;height:100%;}
+.product-section{background:var(--cream);position:relative;z-index:4;border-top:4px solid var(--y3);}
+.product-inner{max-width:860px;margin:0 auto;padding:36px 24px 48px;display:flex;align-items:center;gap:36px;flex-wrap:wrap;}
+.product-blob{width:150px;height:150px;background:var(--y1);border-radius:50% 60% 50% 60%/55% 50% 60% 50%;display:flex;align-items:center;justify-content:center;font-size:76px;box-shadow:0 8px 0 var(--y3);flex-shrink:0;animation:float 3s ease-in-out infinite;}
+.product-text h2{font-family:'Fredoka One',cursive;font-size:clamp(24px,5vw,36px);color:var(--ink);line-height:1.1;margin-bottom:8px;}
+.product-text h2 em{color:var(--orange);font-style:normal;}
+.product-text p{font-size:13.5px;font-weight:700;color:var(--muted);line-height:1.65;max-width:440px;}
+footer{background:var(--y3);padding:16px 24px;text-align:center;position:relative;z-index:4;border-top:3px solid var(--y4);}
+footer p{font-size:11.5px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.05em;}
+footer strong{color:var(--w);}
+@keyframes popIn{from{opacity:0;transform:scale(.65) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes cardPop{from{opacity:0;transform:translateY(28px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+@keyframes wobble{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.wobble{animation:wobble 2.2s ease-in-out infinite;}
+@media(max-width:580px){.card-uts{flex-direction:column}.card-uts .card-top{border-right:none;border-bottom:2px dashed rgba(255,255,255,.13)}.product-inner{justify-content:center;text-align:center}.mascot-l{left:-5px}.mascot-r{right:-5px}}
+
+/* CONTAINER UTAMA */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Biar semua section rapi & ga melebar */
+.hero-inner,
+.navbar-inner,
+.section,
+.product-inner {
+  width: 100%;
+}
+
+/* BATAS HERO */
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* GRID BIAR LEBIH RESPONSIVE */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner container">
+    <div class="mascot mascot-l wobble">🍌</div>
+    <div class="mascot mascot-r" style="animation-delay:.5s">✏️</div>
+    <div class="hero-badge">✦ Pemrograman Berbasis Web ✦</div>
+    <h1 class="hero-title">Tugas <span>Nazla</span></h1>
+    <p class="hero-sub">Kumpulan tugas praktikum mulai HTML sampai PHP & Database 🎓</p>
+    <br/><br/>
+  </div>
+</div>
+
+<!-- FOREST TREES -->
+<div class="forest">
+  <svg viewBox="0 0 1440 86" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="66" width="1440" height="20" fill="#FFC300"/>
+    <g fill="#6DC34C">
+      <polygon points="38,66 58,20 78,66"/><polygon points="52,66 66,36 80,66"/>
+      <polygon points="128,66 152,16 176,66"/><polygon points="144,66 160,33 176,66"/>
+      <polygon points="240,66 260,22 280,66"/><polygon points="254,66 268,40 282,66"/>
+      <polygon points="355,66 378,16 401,66"/><polygon points="370,66 385,34 400,66"/>
+      <polygon points="460,66 478,20 496,66"/>
+      <polygon points="580,66 605,14 630,66"/><polygon points="596,66 614,32 632,66"/>
+      <polygon points="700,66 718,20 736,66"/><polygon points="714,66 728,38 742,66"/>
+      <polygon points="820,66 842,16 864,66"/><polygon points="834,66 850,33 866,66"/>
+      <polygon points="935,66 954,20 973,66"/>
+      <polygon points="1055,66 1079,14 1103,66"/><polygon points="1070,66 1087,31 1104,66"/>
+      <polygon points="1178,66 1196,22 1214,66"/><polygon points="1192,66 1206,40 1220,66"/>
+      <polygon points="1298,66 1320,16 1342,66"/><polygon points="1312,66 1328,33 1344,66"/>
+      <polygon points="1398,66 1416,20 1434,66"/>
+    </g>
+    <g fill="#4DA832" opacity=".55">
+      <polygon points="58,66 68,42 78,66"/><polygon points="160,66 168,44 176,66"/>
+      <polygon points="268,66 274,46 280,66"/><polygon points="385,66 392,40 399,66"/>
+      <polygon points="614,66 620,40 626,66"/><polygon points="728,66 734,44 740,66"/>
+      <polygon points="850,66 856,40 862,66"/><polygon points="1087,66 1094,38 1101,66"/>
+      <polygon points="1328,66 1334,40 1340,66"/>
+    </g>
+    <g fill="#3A6620" opacity=".35">
+      <rect x="55" y="61" width="6" height="5" rx="1"/><rect x="150" y="61" width="6" height="5" rx="1"/>
+      <rect x="257" y="61" width="6" height="5" rx="1"/><rect x="375" y="61" width="6" height="5" rx="1"/>
+      <rect x="600" y="61" width="6" height="5" rx="1"/><rect x="715" y="61" width="6" height="5" rx="1"/>
+      <rect x="838" y="61" width="6" height="5" rx="1"/><rect x="1076" y="61" width="6" height="5" rx="1"/>
+      <rect x="1316" y="61" width="6" height="5" rx="1"/>
+    </g>
+  </svg>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner container">
+    <a class="nav-logo" href="#">🌟 Nazla</a>
+    <div class="nav-links">
+      <a href="#tugas">Tugas</a>
+      <a href="#crud">CRUD</a>
+      <a href="#uts">UTS</a>
+      <a href="#tentang">Tentang</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CARDS -->
+<div class="content-stripe">
+<div class="section" id="tugas">
+  <div class="section-label"><span>✦ Daftar Pertemuan ✦</span></div>
+  <div class="grid">
+
+    <a class="card t-yellow" href="PERTEMUAN 2/pertemuan_kedua.html">
+      <div class="card-top"><span class="card-emoji">📄</span><div class="card-number">Pertemuan 2</div><div class="card-title">Halaman Web Dasar</div></div>
+      <div class="card-bot"><p class="card-desc">Latihan pertama bikin struktur HTML statis dengan konten dan layout sederhana.</p><span class="card-tag">HTML</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-yellow" href="Pertemuan3/TUGAS_3.HTML">
+      <div class="card-top"><span class="card-emoji">🗂️</span><div class="card-number">Pertemuan 3</div><div class="card-title">HTML Lanjutan</div></div>
+      <div class="card-bot"><p class="card-desc">Pendalaman elemen HTML: tabel, list, form, dan penggunaan tag semantik.</p><span class="card-tag">HTML</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-blue" href="PERTEMUAN 4/Pertemuan4.html">
+      <div class="card-top"><span class="card-emoji">🎨</span><div class="card-number">Pertemuan 4</div><div class="card-title">Website Singaperbangsa</div></div>
+      <div class="card-bot"><p class="card-desc">Halaman web kampus dengan header, navbar, dan form pendaftaran bergaya CSS.</p><span class="card-tag">HTML + CSS</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-green" href="PERTEMUAN 5/TUGAS/tugas4.html">
+      <div class="card-top"><span class="card-emoji">⚡</span><div class="card-number">Pertemuan 5</div><div class="card-title">Interaktif JS</div></div>
+      <div class="card-bot"><p class="card-desc">Pengenalan JavaScript: variabel, event handler, dan manipulasi DOM dasar.</p><span class="card-tag">JavaScript</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-sky" href="PERTEMUAN 2/PERTEMUAN 6/index.php">
+      <div class="card-top"><span class="card-emoji">🐘</span><div class="card-number">Pertemuan 6</div><div class="card-title">Pengenalan PHP</div></div>
+      <div class="card-bot"><p class="card-desc">Praktikum server-side pertama: variabel, kondisi, dan output dinamis PHP.</p><span class="card-tag">PHP</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-sky" href="PERTEMUAN T7 P6/latihan_nilai.php">
+      <div class="card-top"><span class="card-emoji">📊</span><div class="card-number">Pertemuan 6–7</div><div class="card-title">Logika PHP</div></div>
+      <div class="card-bot"><p class="card-desc">Perhitungan nilai dan kondisional PHP: grade, rata-rata, dan kelulusan.</p><span class="card-tag">PHP</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-pink" href="PERTEMUAN 7/index.php">
+      <div class="card-top"><span class="card-emoji">📋</span><div class="card-number">Pertemuan 7</div><div class="card-title">PHP Multi-Page</div></div>
+      <div class="card-bot"><p class="card-desc">Navigasi antar halaman PHP pakai parameter GET — 4 soal dalam satu aplikasi.</p><span class="card-tag">PHP</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card t-mint" href="PERTEMUAN 10/index.php" id="crud">
+      <div class="card-top"><span class="card-emoji">📚</span><div class="card-number">Pertemuan 10</div><div class="card-title">Sistem Buku CRUD</div></div>
+      <div class="card-bot"><p class="card-desc">Aplikasi CRUD perpustakaan: tambah, cari, edit, hapus, dan transaksi MySQL.</p><span class="card-tag">PHP + MySQL</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card card-uts" href="UTS_NAZLA/NO_1.html" id="uts">
+      <div class="card-top" style="min-width:200px;">
+        <span class="card-emoji" style="font-size:48px;">🏆</span>
+        <div class="card-number">Ujian Tengah Semester</div>
+        <div class="card-title">UTS — Nazla</div>
+      </div>
+      <div class="card-bot">
+        <p class="card-desc">Ujian Tengah Semester PBW: pengolahan form, logika PHP, dan tampilan dinamis.</p>
+        <span class="card-tag">UTS</span>
+        <span class="card-arrow" style="font-size:20px;">→</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+</div>
+
+<!-- WAVE -->
+<div class="product-wave">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C300,48 600,0 900,32 C1200,60 1380,12 1440,28 L1440,0 Z" fill="#FFC300"/>
+    <path d="M0,12 C200,48 600,8 900,36 C1150,58 1360,16 1440,24 L1440,0 Z" fill="#FFFDE7" opacity=".5"/>
+  </svg>
+</div>
+
+<!-- INFO SECTION -->
+<div class="product-section" id="tentang">
+  <div class="product-inner">
+    <div class="product-blob">💻</div>
+    <div class="product-text">
+      <h2>Belajar Web dari<br><em>Nol sampai Bisa!</em></h2>
+      <p>Dari dasar HTML sampai aplikasi PHP dengan database MySQL — semua dirangkum dalam pertemuan demi pertemuan. Klik salah satu kartu di atas untuk membuka hasil praktikum.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>COPYRIGHT 2026 by <strong>NAZLA</strong> &mdash; Pemrograman Berbasis Web &nbsp;✦&nbsp; All Rights Reserved</p>
+</footer>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const idx = [...cards].indexOf(el);
+      setTimeout(() => el.classList.add('visible'), idx * 75);
+      obs.unobserve(el);
+    }
+  });
+}, { threshold: 0.08 });
+cards.forEach(c => obs.observe(c));
+</script>
+</body>
+</html>

@@ -1,4 +1,6 @@
-<?php include 'proses_index.php'; ?>
+<?php include 'proses_index.php';
+include 'proteksi.php';
+ ?>
 
 <!DOCTYPE html>
 <html lang="id">

@@ -1,7 +1,8 @@
 <?php
-include 'koneksi_db.php'; // Koneksi database
+include 'koneksi_db.php';
+include 'proteksi.php';
 
-// Inisialisasi variabel pencarian
+
 $search_judul = isset($_GET['judul']) ? $_GET['judul'] : '';
 $search_tahun = isset($_GET['tahun_terbit']) ? $_GET['tahun_terbit'] : '';
 
