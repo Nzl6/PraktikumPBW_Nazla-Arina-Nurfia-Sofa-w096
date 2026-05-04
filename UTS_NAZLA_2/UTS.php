@@ -13,9 +13,9 @@
     <div>
         <section>
             <h2>Formulir Pembelian Barang Koprasi</h2>
-            <p>Setiap pengisian from akan diproses 1 hari setelahnya, jadi isi 1x saja ya..</p>
+            <p>Setiap pengisian form akan diproses 1 hari setelahnya, jadi isi 1x saja ya..</p>
             
-            <from action="proses.php" method="POST">
+            <form action="proses.php" method="POST">
                 <div>
                     <h4>Nama Lengkap :</h4>
                     <input type="text" name="nama" required>
@@ -30,8 +30,8 @@
                 </div>
                 <div>
                     <h4>Jenis Layanan :</h4>
-                    <label><input type="radio" name="j_layanan" value="layanan1"> Reguler</label>
-                    <label><input type="radio" name="j_layanan" value="layanan2"> Prioritas</label>
+                    <label><input type="radio" name="jenis_layanan" value="Reguler"> Reguler</label>
+                    <label><input type="radio" name="jenis_layanan" value="Prioritas"> Prioritas</label>
                 </div>
 
                 <h3>Pilih Barang</h3>

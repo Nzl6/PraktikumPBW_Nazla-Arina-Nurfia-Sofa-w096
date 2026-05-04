@@ -93,40 +93,13 @@ footer strong{color:var(--w);}
 .wobble{animation:wobble 2.2s ease-in-out infinite;}
 @media(max-width:580px){.card-uts{flex-direction:column}.card-uts .card-top{border-right:none;border-bottom:2px dashed rgba(255,255,255,.13)}.product-inner{justify-content:center;text-align:center}.mascot-l{left:-5px}.mascot-r{right:-5px}}
 
-/* CONTAINER UTAMA */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Biar semua section rapi & ga melebar */
-.hero-inner,
-.navbar-inner,
-.section,
-.product-inner {
-  width: 100%;
-}
-
-/* BATAS HERO */
-.hero-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* GRID BIAR LEBIH RESPONSIVE */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-inner container">
+  <div class="hero-inner">
     <div class="mascot mascot-l wobble">🍌</div>
     <div class="mascot mascot-r" style="animation-delay:.5s">✏️</div>
     <div class="hero-badge">✦ Pemrograman Berbasis Web ✦</div>
@@ -172,20 +145,7 @@ footer strong{color:var(--w);}
   </svg>
 </div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-inner container">
-    <a class="nav-logo" href="#">🌟 Nazla</a>
-    <div class="nav-links">
-      <a href="#tugas">Tugas</a>
-      <a href="#crud">CRUD</a>
-      <a href="#uts">UTS</a>
-      <a href="#tentang">Tentang</a>
-    </div>
-  </div>
-</nav>
 
-<!-- CARDS -->
 <div class="content-stripe">
 <div class="section" id="tugas">
   <div class="section-label"><span>✦ Daftar Pertemuan ✦</span></div>
@@ -231,7 +191,7 @@ footer strong{color:var(--w);}
       <div class="card-bot"><p class="card-desc">Aplikasi CRUD perpustakaan: tambah, cari, edit, hapus, dan transaksi MySQL.</p><span class="card-tag">PHP + MySQL</span><span class="card-arrow">→</span></div>
     </a>
 
-    <a class="card card-uts" href="UTS_NAZLA/NO_1.html" id="uts">
+    <a class="card card-uts" href="UTS_NAZLA_2/UTS.php" id="uts">
       <div class="card-top" style="min-width:200px;">
         <span class="card-emoji" style="font-size:48px;">🏆</span>
         <div class="card-number">Ujian Tengah Semester</div>
