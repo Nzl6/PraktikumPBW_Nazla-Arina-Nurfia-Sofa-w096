@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS tugas12_db
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+USE tugas12_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS pendaftaran (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    npm VARCHAR(30) NOT NULL,
+    tempat_lahir VARCHAR(100) NOT NULL,
+    tanggal_lahir DATE NOT NULL,
+    jenis_kelamin ENUM('Laki-laki', 'Perempuan') NOT NULL,
+    alamat TEXT NOT NULL,
+    no_hp VARCHAR(30) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    prodi VARCHAR(100) NOT NULL,
+    fakultas VARCHAR(100) NOT NULL,
+    agama VARCHAR(50) NOT NULL,
+    divisi VARCHAR(50) NOT NULL,
+    alasan TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;

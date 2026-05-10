@@ -1,18 +1,12 @@
 <?php
-/**
- * proses_login.php
- * Handles login form submission via POST.
- * Returns JSON response for the frontend fetch call.
- *
- * Usage: called from login.html via fetch('proses_login.php', { method: 'POST', ... })
- */
+include 'koneksi.php';
 
 header('Content-Type: application/json');
 header('X-Content-Type-Options: nosniff');
 
 // ─── Database config ──────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'pt12_pbw');
+define('DB_NAME', 'eduregis_db');
 define('DB_USER', 'root');          // ganti sesuai konfigurasi
 define('DB_PASS', '');              // ganti sesuai konfigurasi
 define('DB_CHARSET', 'utf8mb4');
@@ -86,6 +80,6 @@ $_SESSION['logged_in'] = true;
 
 // ─── Success ──────────────────────────────────────────────
 jsonResponse(true, 'Login berhasil.', [
-    'redirect' => 'index.html',
+    'redirect' => 'dashboard.php',
     'name'     => $user['name'],
 ]);
