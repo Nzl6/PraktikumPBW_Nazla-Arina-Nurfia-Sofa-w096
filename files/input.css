@@ -1,0 +1,78 @@
+/* input.css — Tailwind CSS source file
+   Compile with: npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Custom base styles ─── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-gray-800;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+/* ─── Reusable component classes ─── */
+@layer components {
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-brand-600 text-white font-semibold text-sm
+           hover:bg-brand-700 transition shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full border border-brand-600 text-brand-600 font-semibold text-sm
+           hover:bg-brand-50 transition;
+  }
+
+  /* Inputs */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 bg-gray-50
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent focus:bg-white transition;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white border border-gray-100 rounded-2xl shadow-sm p-6 hover:shadow-md transition;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-block bg-brand-50 text-brand-600 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-colors;
+  }
+}
+
+/* ─── Custom utilities ─── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-sky-500 bg-clip-text text-transparent;
+  }
+}

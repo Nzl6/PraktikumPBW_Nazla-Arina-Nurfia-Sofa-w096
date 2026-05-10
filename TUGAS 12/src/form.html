@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Mahasiswa</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-slate-100 p-6 md:p-10">
+    <form class="mx-auto w-full max-w-3xl rounded-2xl bg-white p-6 shadow-lg md:p-8">
+        <h1 class="mb-8 text-center text-2xl font-extrabold tracking-wide text-slate-800">PENDAFTARAN KEPANITIAAN</h1>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="nama" class="w-40 text-sm font-semibold text-slate-700">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="npm" class="w-40 text-sm font-semibold text-slate-700">NPM</label>
+            <input type="number" id="npm" name="npm" placeholder="NPM" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="tempat_lahir" class="w-40 text-sm font-semibold text-slate-700">Tempat Lahir</label>
+            <input type="text" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+        
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="tanggal_lahir" class="w-40 text-sm font-semibold text-slate-700">Tanggal Lahir</label>
+            <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label class="w-40 text-sm font-semibold text-slate-700">Jenis Kelamin</label>
+            <div class="flex flex-wrap items-center gap-5 text-sm text-slate-700">
+                <label class="inline-flex items-center gap-2"><input type="radio" name="jenis_kelamin" value="Laki-laki" class="h-4 w-4 border-slate-300 text-blue-600 focus:ring-blue-300"> Laki-laki</label>
+                <label class="inline-flex items-center gap-2"><input type="radio" name="jenis_kelamin" value="Perempuan" class="h-4 w-4 border-slate-300 text-blue-600 focus:ring-blue-300"> Perempuan</label>
+            </div>
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-start">
+            <label for="alamat" class="w-40 pt-2 text-sm font-semibold text-slate-700">Alamat</label>
+            <textarea id="alamat" name="alamat" placeholder="Alamat" class="min-h-24 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"></textarea>
+        </div>
+        
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="no_hp" class="w-40 text-sm font-semibold text-slate-700">No HP</label>
+            <input type="tel" id="no_hp" name="no_hp" placeholder="No HP" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="email" class="w-40 text-sm font-semibold text-slate-700">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="prodi" class="w-40 text-sm font-semibold text-slate-700">Prodi</label>
+            <input type="text" id="prodi" name="prodi" placeholder="Prodi" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="fakultas" class="w-40 text-sm font-semibold text-slate-700">Fakultas</label>
+            <input type="text" id="fakultas" name="fakultas" placeholder="Fakultas" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+        </div>
+        
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="agama" class="w-40 text-sm font-semibold text-slate-700">Agama</label>
+            <select name="agama" id="agama" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+            <option value="islam">Islam</option>
+            <option value="kristen">Kristen</option>
+            <option value="hindu">Hindu</option>
+            <option value="budha">Budha</option>
+            </select>
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-center">
+            <label for="divisi" class="w-40 text-sm font-semibold text-slate-700">Divisi</label>
+            <select name="divisi" id="divisi" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200">
+            <option value="acara">Acara</option>
+            <option value="konsumsi">Konsumsi</option>
+            <option value="humas">Humas</option>
+            <option value="peralatan">Peralatan</option>
+            <option value="media">Media</option>
+            </select>
+        </div>
+
+        <div class="mb-4 flex flex-col gap-2 md:flex-row md:items-start">
+            <label for="alasan" class="w-40 pt-2 text-sm font-semibold text-slate-700">Alasan</label>
+            <textarea id="alasan" name="alasan" placeholder="Alasan" class="min-h-24 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"></textarea>
+        </div>
+
+        <div class="pt-2 md:pl-40">
+            <button type="submit" class="rounded-lg bg-blue-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

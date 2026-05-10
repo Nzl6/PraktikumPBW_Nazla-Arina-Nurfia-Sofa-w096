@@ -1,6 +1,6 @@
 <?php include 'proses_index.php';
 include 'proteksi.php';
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="id">
@@ -20,15 +20,11 @@ include 'proteksi.php';
     <form method="get" class="row g-3 mb-4">
       <div class="col-md-5">
         <label for="judul" class="form-label">Cari Berdasarkan Judul</label>
-        <input type="text" class="form-control" id="judul" name="judul" 
-               placeholder="Masukkan judul buku" 
-               value="<?php echo htmlspecialchars($search_judul ?? '') ?>">
+        <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul buku" value="<?php echo htmlspecialchars($search_judul ?? '') ?>">
       </div>
       <div class="col-md-3">
         <label for="tahun_terbit" class="form-label">Cari Berdasarkan Tahun Terbit</label>
-        <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" 
-               placeholder="Masukkan tahun terbit" 
-               value="<?php echo htmlspecialchars($search_tahun ?? '') ?>">
+        <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Masukkan tahun terbit" value="<?php echo htmlspecialchars($search_tahun ?? '') ?>">
       </div>
       <div class="col-md-2 align-self-end">
         <button type="submit" class="btn btn-primary">Cari</button>
@@ -60,8 +56,7 @@ include 'proteksi.php';
           <td>Rp<?php echo number_format($row['Harga'], 2) ?></td>
           <td>
             <a href="form_edit.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-warning">Edit</a>
-            <a href="proses_hapus.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-danger" 
-               onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+            <a href="proses_hapus.php?id=<?php echo $row['ID'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
           </td>
         </tr>
         <?php endwhile; ?>
